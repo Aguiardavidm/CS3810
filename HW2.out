@@ -1,0 +1,25 @@
+   name_b    
+-------------
+ Netherlands
+ Belgium
+ Luxemburg
+ Poland
+ Czechia
+ Austria
+ France
+ Switzerland
+(8 rows)
+
+  name   | latitude | longitude |  area  | population | gdp  | gdpyear 
+---------+----------+-----------+--------+------------+------+---------
+ Germany |     5100 |       900 | 357022 |   80594017 | 3979 |    2016
+ Poland  |     5200 |      2000 | 312685 |   38476269 | 1052 |    2016
+ France  |     4600 |       200 | 643801 |   67106161 | 2699 |    2016
+(3 rows)
+
+ name_b 
+--------
+ Poland
+ France
+(2 rows)
+
