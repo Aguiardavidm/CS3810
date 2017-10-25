@@ -1,104 +1,117 @@
-DROP TABLE aircraft_ , airport_ , carrier_ , carrier_dates , city_ , distance_ , flight_ , region_abv , state_ CASCADE;
-
-CREATE TABLE distance_
-(
-	origin_ varchar (50),
-	dest_ varchar (50),
-	dist_ integer,
-	dist_group integer,
-	PRIMARY KEY (origin_, dest_)
-);
-
-CREATE TABLE region_abv
-(
-	region_abv varchar(1),
-	region_ varchar(50),
-	PRIMARY KEY(region_)
-);
-
-CREATE TABLE carrier_
-(
-	unique_carrier varchar (3),
-	airline_id integer,
-	carrier_nm varchar (200),
-	carrier_ varchar (200),
-	carrier_group integer,
-	carrier_group_new integer,
-	PRIMARY KEY (unique_carrier, airline_id,carrier_nm, carrier_,carrier_group, carrier_group_new)
-);
-
-CREATE TABLE carrier_dates
-(
-	carrier_ varchar (50),
-	start_date date,
-	PRIMARY KEY (carrier_, start_date)
-);
-
-CREATE TABLE aircraft_ 
-(
-	aircraft_group integer,
-	aircraft_type integer,
-	aircraft_config integer,
-	seats_ integer,	
-	payload_ integer,
-	flight_id serial,
-	PRIMARY KEY (aircraft_type, aircraft_config, aircraft_group, seats_ , payload_)
-);
-
-CREATE TABLE state_
-(
-	state_abv varchar (2),
-	state_name varchar (50),
-	fips_ integer,
-	PRIMARY KEY (state_abv)
-);
-
-CREATE TABLE city_
-(
-	state_abv varchar (2),
-	market_id integer,
-	city_nm varchar (50),
-	city_abv varchar (3),
-	wac_ integer,
-	PRIMARY KEY(city_abv)
-);
-
-CREATE TABLE airport_
+CREATE TABLE airport
 (
 	airport_id integer,
 	airport_seq_id integer,
-	city_abv varchar (3),
-	PRIMARY KEY(airport_id)
+	city_abv VARCHAR (3),
+	PRIMARY KEY (airport_id)
 );
 
-CREATE TABLE flight_  
+CREATE TABLE carrier
 (
-	month_ integer,
-	class_ varchar (1), 
-	passenger_ integer,
-	freight_ integer,
-	mail_ integer,
+	unique_carrier VARCHAR (10),
+	airline_id integer,
+	unique_carrier_name VARCHAR (100),
+	unique_carrier_entity VARCHAR (10),
+	carrier VARCHAR (100),
+	region_abv VARCHAR (1),
+	carrier_name VARCHAR (100),
+	carrier_group integer,
+	carrier_group_new integer,
+	PRIMARY KEY (unique_carrier_entity)
+);
+
+CREATE TABLE carrier_date
+(
+	unique_carrier_entity VARCHAR (10),
+	start_date VARCHAR (20),
+	thru_date_source VARCHAR (10),
+	PRIMARY KEY (unique_carrier_entity)
+);
+
+CREATE TABLE distance
+(
+	origin_airport_id integer,
+	dest_airport_id integer,
+	distance integer,
+	distance_group integer,
+	PRIMARY KEY (origin_airport_id, dest_airport_id)
+);
+
+CREATE TABLE flights
+(
+	year integer,
+	month integer,
+	class VARCHAR (1),
+	passenger integer,
+	freight integer,
+	mail integer,
 	ramp_to_ramp integer,
 	air_time integer,
 	origin_airport_id integer,
 	dest_airport_id integer,
+	flight_id integer,
+	unique_carrier_entity VARCHAR (20),
 	departures_scheduled integer,
 	departures_performed integer,
-	flight_id serial,
 	PRIMARY KEY (flight_id)
 );
 
-alter table city_
-	add constraint fk_state_abv
-	foreign key (state_abv)
-	REFERENCES state_ (state_abv);
+CREATE TABLE city
+(
+	city_name VARCHAR (100),
+	city_abv VARCHAR (3),
+	state_abv VARCHAR (2),
+	wac integer,
+	city_market_id integer,
+	PRIMARY KEY (city_abv)
 	
-alter table flight_
+);
+
+CREATE TABLE state
+(
+	state_abv VARCHAR (3),
+	state_name VARCHAR (20),
+	state_fips integer,
+	PRIMARY KEY (state_abv)
+);
+
+alter table flights
 	add constraint fk_origin_airport_id
 	foreign key (origin_airport_id)
-	REFERENCES airport_  (airport_id);
+	REFERENCES airport (airport_id);
 	
-alter table flight_
+alter table flights
 	add constraint fk_dest_airport_id
 	foreign key (dest_airport_id)
-	REFERENCES airport_ (airport_id);
+	REFERENCES airport (airport_id);
+	
+alter table flights
+	add constraint fk_unique_carrier_entity
+	foreign key (unique_carrier_entity)
+	REFERENCES carrier (unique_carrier_entity);
+	
+alter table airport
+	add constraint fk_city_abv
+	foreign key (city_abv)
+	REFERENCES city (city_abv);
+	
+alter table carrier_date
+	add constraint fk_carrier_date
+	foreign key (unique_carrier_entity)
+	REFERENCES carrier (unique_carrier_entity);
+	
+alter table distance
+	add constraint fk_origin_airport_id
+	foreign key (origin_airport_id)
+	REFERENCES airport (airport_id);
+	
+alter table distance
+	add constraint fk_dest_airport_id
+	foreign key (dest_airport_id)
+	REFERENCES airport (airline_id);
+	
+alter table city
+	add constraint fk_state_abv
+	foreign key (state_abv)
+	REFERENCES state (state_abv);
+	
