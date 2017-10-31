@@ -25,15 +25,6 @@ CREATE TABLE phone(
 	local_code integer,
 	PRIMARY KEY (full_phone));
 	
--- Customer_ first name, last name, mailing address, +- phone number, +- email 
-CREATE TABLE person(
-	full_name VARCHAR (200) UNIQUE,
-	first_name VARCHAR (100),
-	last_name VARCHAR (100),
-	mailing_address VARCHAR (100),
-	phone_number integer REFERENCES phone(full_phone),
-	PRIMARY KEY (full_name, mailing_address));
-	
 -- Address_ street, city, province or state, postal code, country
 CREATE TABLE address(
 	address_id SERIAL,
@@ -42,10 +33,17 @@ CREATE TABLE address(
 	state VARCHAR (100),
 	postal_code integer,
 	country VARCHAR (100) REFERENCES country(country),
-	PRIMARY KEY (address_id));
+	PRIMARY KEY (address_id));	
 	
-
-	
+-- Customer_ first name, last name, mailing address, +- phone number, +- email 
+CREATE TABLE person(
+	full_name VARCHAR (200) UNIQUE,
+	first_name VARCHAR (100),
+	last_name VARCHAR (100),
+	mailing_address_id integer REFERENCES address(address_id),
+	phone_number integer REFERENCES phone(full_phone),
+	PRIMARY KEY (full_name, mailing_address_id));
+		
 CREATE TABLE flight(
 	origin_city_name VARCHAR (100) REFERENCES city(city_name),
 	dest_city_name VARCHAR (100) REFERENCES city(city_name),
