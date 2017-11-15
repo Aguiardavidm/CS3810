@@ -1,0 +1,102 @@
+        origin_city        | origin_state | airport_id |                      airline_name                       | pass 
+---------------------------+--------------+------------+---------------------------------------------------------+-------
+ Denver, CO                | Colorado     |      11292 | Virgin America                                          |   117 
+ Denver, CO                | Colorado     |      11292 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |    43 
+ Denver, CO                | Colorado     |      11292 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |    41 
+ Eagle, CO                 | Colorado     |      11503 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |    22 
+ Denver, CO                | Colorado     |      11292 | Ameristar Air Cargo                                     |     0 
+ Colorado Springs, CO      | Colorado     |      11109 | Allegiant Air                                           |   156 
+ Aspen, CO                 | Colorado     |      10372 | Avjet Corporation                                       |     3 
+ Eagle, CO                 | Colorado     |      11503 | Avjet Corporation                                       |     3 
+ Denver, CO                | Colorado     |      11292 | American Airlines Inc.                                  |    62 
+ Colorado Springs, CO      | Colorado     |      11109 | Delta Air Lines Inc.                                    |   160 
+ Colorado Springs, CO      | Colorado     |      11109 | Delta Air Lines Inc.                                    |   139 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |     4 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |   129 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |    62 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |     0
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |   148 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |   150 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |   149 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |   102 
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |    50 
+ Colorado Springs, CO      | Colorado     |      11109 | Miami Air International                                 |     0 
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |    70
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |   152 
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |   122 
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |   174 
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |   163 
+ Denver, CO                | Colorado     |      11292 | United Air Lines Inc.                                   |   200 
+ Colorado Springs, CO      | Colorado     |      11109 | Southwest Airlines Co.                                  |   281 
+ Denver, CO                | Colorado     |      11292 | Southwest Airlines Co.                                  |   142 
+ Denver, CO                | Colorado     |      11292 | Southwest Airlines Co.                                  |   160 
+ Denver, CO                | Colorado     |      11292 | Southwest Airlines Co.                                  |   164 
+ Denver, CO                | Colorado     |      11292 | Southwest Airlines Co.                                  |   143 
+  
+         origin_city        | origin_state | airport_id |                      airline_name                       | freight
+---------------------------+--------------+------------+---------------------------------------------------------+---------
+ Denver, CO                | Colorado     |      11292 | Virgin America                                          |       0
+ Denver, CO                | Colorado     |      11292 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |       0
+ Denver, CO                | Colorado     |      11292 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |       0
+ Eagle, CO                 | Colorado     |      11503 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |       0
+ Denver, CO                | Colorado     |      11292 | Ameristar Air Cargo                                     |       0
+ Colorado Springs, CO      | Colorado     |      11109 | Allegiant Air                                           |       0
+ Aspen, CO                 | Colorado     |      10372 | Avjet Corporation                                       |       0
+ Eagle, CO                 | Colorado     |      11503 | Avjet Corporation                                       |       0
+ Denver, CO                | Colorado     |      11292 | American Airlines Inc.                                  |       0
+ Colorado Springs, CO      | Colorado     |      11109 | Delta Air Lines Inc.                                    |       0
+ Colorado Springs, CO      | Colorado     |      11109 | Delta Air Lines Inc.                                    |       0
+ Denver, CO                | Colorado     |      11292 | Delta Air Lines Inc.                                    |       0
+ 
+   sum
+---------
+ 2735752
+(1 row)
+
+       origin_city_name       | state |     destination_city      |                      carrier_name                       | passenger
+------------------------------+-------+---------------------------+---------------------------------------------------------+-----------
+ Long Beach, CA               | CA    | Denver, CO                | JetBlue Airways                                         |       146
+ San Francisco, CA            | CA    | Denver, CO                | Virgin America                                          |       119
+ Des Moines, IA               | IA    | Denver, CO                | Tradewind Aviation                                      |         2
+ Dickinson, ND                | ND    | Denver, CO                | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |        35
+ St. Louis, MO                | MO    | Eagle, CO                 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |        38
+ CONCORD, NC                  | NC    | Eagle, CO                 | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways |         0
+ Atlanta, GA                  | GA    | Denver, CO                | Ameristar Air Cargo                                     |         0
+ Las Vegas, NV                | NV    | Colorado Springs, CO      | Allegiant Air                                           |         0
+ Burbank, CA                  | CA    | Eagle, CO                 | Avjet Corporation                                       |         4
+ Salt Lake City, UT           | UT    | Aspen, CO                 | Avjet Corporation                                       |         2
+ Philadelphia, PA             | PA    | Denver, CO                | American Airlines Inc.                                  |        56
+ Atlanta, GA                  | GA    | Colorado Springs, CO      | Delta Air Lines Inc.                                    |       160
+ Atlanta, GA                  | GA    | Denver, CO                | Delta Air Lines Inc.                               
+ 
+ 
+        origin_city_name       | state |                   unique_carrier_name
+------------------------------+-------+---------------------------------------------------------
+ Long Beach, CA               | CA    | JetBlue Airways
+ Denver, CO                   | CO    | Virgin America
+ San Francisco, CA            | CA    | Virgin America
+ Des Moines, IA               | IA    | Tradewind Aviation
+ Denver, CO                   | CO    | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways
+ Eagle, CO                    | CO    | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways
+ St. Louis, MO                | MO    | Aerodynamics Inc. d/b/a SkyValue d/b/a SkyValue Airways
+ Atlanta, GA                  | GA    | Ameristar Air Cargo
+ Colorado Springs, CO         | CO    | Allegiant Air
+ Las Vegas, NV                | NV    | Allegiant Air
+ Aspen, CO                    | CO    | Avjet Corporation
+ Burbank, CA                  | CA    | Avjet Corporation
+ Eagle, CO                    | CO    | Avjet Corporation
+ Denver, CO                   | CO    | American Airlines Inc.
+ Atlanta, GA                  | GA    | Delta Air Lines Inc.
+ Atlanta, GA                  | GA    | Delta Air Lines Inc.
+ Atlanta, GA                  | GA    | Delta Air Lines Inc.
+ Colorado Springs, CO         | CO    | Delta Air Lines Inc.
+ Colorado Springs, CO         | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Denver, CO                   | CO    | Delta Air Lines Inc.
+ Detroit, MI                  | MI    | Delta Air Lines Inc.
+ Minneapolis, MN              | MN    | Delta Air Lines Inc.
