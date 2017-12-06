@@ -104,12 +104,7 @@ alter table distance
 	add constraint fk_origin_airport_id
 	foreign key (origin_airport_id)
 	REFERENCES airport (airport_id);
-	
-alter table distance
-	add constraint fk_dest_airport_id
-	foreign key (dest_airport_id)
-	REFERENCES airport (airline_id);
-	
+
 alter table city
 	add constraint fk_state_abv
 	foreign key (state_abv)
